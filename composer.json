@@ -1,7 +1,11 @@
 {
-  "require": {
+  "require":           {
+    "cubex/core": "*"
   },
-  "autoload": {
-    "psr-0": {"Sample": "src/"}
-  }
+  "autoload":          {
+    "psr-0": {
+      "Sample": "src/"
+    }
+  },
+  "minimum-stability": "dev"
 }
