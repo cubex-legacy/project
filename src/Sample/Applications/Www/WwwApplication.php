@@ -4,7 +4,17 @@
  */
 namespace Sample\Applications\Www;
 
-class WwwApplication extends \Cubex\Application\Application
-{
+use Cubex\Application\Application;
 
+class WwwApplication extends Application
+{
+  public function defaultDispatcher()
+  {
+    return 'DefaultController';
+  }
+
+  public function getNamespace()
+  {
+    return 'Sample\Applications\Www';
+  }
 }
