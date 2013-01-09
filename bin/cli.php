@@ -16,6 +16,12 @@ define('PHP_START', microtime(true));
 $autoLoader = require dirname(__DIR__) . '/vendor/autoload.php';
 
 /**
+ * Let Cubex know we're running from CLI
+ */
+
+$_SERVER['CUBEX_CLI'] = true;
+
+/**
  * Initiate Cubex
  */
 
