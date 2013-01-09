@@ -1,0 +1,16 @@
+#alias cubex='/path_to_cubex/bin/cubex'
+#export CUBEX_ENV=environment;
+
+DIR=`dirname "$0"`
+SCRIPT='/cli.php'
+EXECUTE=$DIR$SCRIPT
+
+if which cygpath >/dev/null; then
+  EXECUTE=`cygpath -m $EXECUTE`
+fi
+
+if which php-win >/dev/null; then
+    php-win $EXECUTE "$*"
+else
+    php $EXECUTE "$*"
+fi
