@@ -1,14 +1,11 @@
 <?php
 /**
- * Cubex Website Stub
+ * Cubex Website Project
  *
- * @author   Brooke Bryan
+ * @author Brooke Bryan
  */
 
 define('PHP_START', microtime(true));
-
-error_reporting(E_ALL);
-ini_set('display_errors',true);
 
 /**
  **************************************
@@ -19,7 +16,23 @@ ini_set('display_errors',true);
 $autoLoader = require dirname(__DIR__) . '/vendor/autoload.php';
 
 /**
- * Boot Cubex
+ * Initiate Cubex
  */
+
 $cubex = new \Cubex\Core\Loader($autoLoader);
-$cubex->launch();
+
+/**
+ * Respond to Web Request (Cubex Returns \Cubex\Http\Response
+ */
+
+$cubex->respondToWebRequest();
+
+/**
+ * Should you wish to find out the PHP Request time
+ */
+
+/*
+echo "Completed in " . number_format(
+  ((\microtime(true) - PHP_START)) * 1000, 1
+) . "ms";
+*/
