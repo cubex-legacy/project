@@ -22,6 +22,12 @@ $autoLoader = require dirname(__DIR__) . '/vendor/autoload.php';
 $cubex = new \Cubex\Core\Loader($autoLoader);
 
 /**
+ * Set namespace of this project
+ */
+
+$cubex->setNamespace("Sample");
+
+/**
  * Respond to Web Request (Cubex Returns \Cubex\Http\Response
  */
 
