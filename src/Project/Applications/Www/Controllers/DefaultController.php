@@ -6,17 +6,34 @@
 namespace Project\Applications\Www\Controllers;
 
 use Cubex\Controllers\BaseController;
+use Cubex\Routing\Templates\ResourceTemplate;
+use Project\Applications\Www\Views\Index;
 
 class DefaultController extends BaseController
 {
   public function renderIndex()
   {
-    return "Hey";
+    return new Index();
   }
 
-  public function renderAbout()
+  public function renderNew()
   {
-    return "About";
+    return "New";
+  }
+
+  public function renderEdit()
+  {
+    return "Edit";
+  }
+
+  public function renderUpdate()
+  {
+    return "Updating";
+  }
+
+  public function renderDestroy()
+  {
+    return "Deleting";
   }
 
   public function defaultAction()
@@ -26,8 +43,6 @@ class DefaultController extends BaseController
 
   public function getRoutes()
   {
-    return array(
-      '/about'    => 'about',
-    );
+    return ResourceTemplate::getRoutes();
   }
 }
