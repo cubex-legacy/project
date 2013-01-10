@@ -3,7 +3,7 @@
  * @author  brooke.bryan
  */
 
-namespace Sample\Applications\Www\Controllers;
+namespace Project\Applications\Www\Controllers;
 
 use Cubex\Controllers\BaseController;
 
@@ -11,11 +11,23 @@ class DefaultController extends BaseController
 {
   public function renderIndex()
   {
-    return "Hello World";
+    return "Hey";
+  }
+
+  public function renderAbout()
+  {
+    return "About";
   }
 
   public function defaultAction()
   {
     return "index";
+  }
+
+  public function getRoutes()
+  {
+    return array(
+      '/about'    => 'about',
+    );
   }
 }

@@ -2,7 +2,7 @@
 /**
  * @author  brooke.bryan
  */
-namespace Sample\Applications\Www;
+namespace Project\Applications\Www;
 
 use Cubex\Application\Application;
 
@@ -15,6 +15,6 @@ class WwwApplication extends Application
 
   public function getNamespace()
   {
-    return 'Sample\Applications\Www';
+    return __NAMESPACE__;
   }
 }

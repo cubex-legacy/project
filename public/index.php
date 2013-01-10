@@ -16,21 +16,33 @@ define('PHP_START', microtime(true));
 $autoLoader = require dirname(__DIR__) . '/vendor/autoload.php';
 
 /**
- * Initiate Cubex
+ * If you are unable to set your environment within a vhost, you can define
+ * it using the following line of code
+ *
+ * putenv("CUBEX_ENV=development");
+ *
  */
 
+/**
+ * Initiate Cubex
+ */
 $cubex = new \Cubex\Core\Loader($autoLoader);
 
 /**
- * Set namespace of this project
+ * Pull in Cubex Configuration
  */
+$configArray = \Cubex\Config\ConfigGroup::fromArray(
+  array_replace_recursive(
+    parse_ini_file(dirname(__DIR__) . '/conf/defaults.ini', true),
+    parse_ini_file(dirname(__DIR__) . '/conf/' . CUBEX_ENV . '.ini', true)
+  )
+);
 
-$cubex->setNamespace("Sample");
+$cubex->configure($configArray);
 
 /**
  * Respond to Web Request (Cubex Returns \Cubex\Http\Response
  */
-
 $cubex->respondToWebRequest();
 
 /**
@@ -38,7 +50,6 @@ $cubex->respondToWebRequest();
  */
 
 /*
-echo "Completed in " . number_format(
-  ((\microtime(true) - PHP_START)) * 1000, 1
-) . "ms";
+echo "Completed in ";
+echo number_format(((microtime(true) - PHP_START)) * 1000, 1) . "ms";
 */

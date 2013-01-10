@@ -1,16 +1,51 @@
-#alias cubex='/path_to_cubex/bin/cubex'
-#export CUBEX_ENV=environment;
+#!/usr/bin/env php
+<?php
+/**
+ * @author: brooke.bryan
+ * @author: gareth.evans
+ *
+ * Description: Script Loader
+ */
+define('PHP_START', microtime(true));
 
-DIR=`dirname "$0"`
-SCRIPT='/cli.php'
-EXECUTE=$DIR$SCRIPT
+/**
+ **************************************
+ * Register The Composer Auto Loader  *
+ **************************************
+ */
 
-if which cygpath >/dev/null; then
-  EXECUTE=`cygpath -m $EXECUTE`
-fi
+$autoLoader = require dirname(__DIR__) . '/vendor/autoload.php';
 
-if which php-win >/dev/null; then
-    php-win $EXECUTE "$*"
-else
-    php $EXECUTE "$*"
-fi
+/**
+ * Let Cubex know we're running from CLI
+ */
+$_SERVER['CUBEX_CLI'] = true;
+
+/**
+ * Initiate Cubex
+ */
+$cubex = new \Cubex\Core\Loader($autoLoader);
+
+/**
+ * Pull in Cubex Configuration
+ */
+$configArray = \Cubex\Config\ConfigGroup::fromArray(
+  array_replace_recursive(
+    parse_ini_file(dirname(__DIR__) . '/conf/defaults.ini', true),
+    parse_ini_file(dirname(__DIR__) . '/conf/' . CUBEX_ENV . '.ini', true)
+  )
+);
+
+/**
+ * Respond to Web Request (Cubex Returns \Cubex\Http\Response
+ */
+$cubex->respondToCliRequest($argv);
+
+/**
+ * Should you wish to find out the PHP Request time
+ */
+
+/*
+echo "Completed in ";
+echo number_format(((microtime(true) - PHP_START)) * 1000, 1) . "ms";
+*/

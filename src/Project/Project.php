@@ -3,7 +3,7 @@
  * @author  brooke.bryan
  */
 
-namespace Sample;
+namespace Project;
 
 class Project extends \Cubex\Project\Project
 {
@@ -14,7 +14,7 @@ class Project extends \Cubex\Project\Project
    */
   public function name()
   {
-    return "Sample";
+    return "Project Name";
   }
 
   /**
