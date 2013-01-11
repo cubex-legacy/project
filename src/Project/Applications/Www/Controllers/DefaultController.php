@@ -5,14 +5,17 @@
 
 namespace Project\Applications\Www\Controllers;
 
-use Cubex\Controllers\BaseController;
+use Cubex\Core\Controllers\WebpageController;
 use Cubex\Routing\Templates\ResourceTemplate;
 use Project\Applications\Www\Views\Index;
 
-class DefaultController extends BaseController
+class DefaultController extends WebpageController
 {
   public function renderIndex()
   {
+    $this->webpage()->layout()->setLayoutsDirectory(dirname(__DIR__) . '/Templates/Layouts');
+    echo $this->webpage()->layout()->getFilePath();
+    die;
     return new Index();
   }
 

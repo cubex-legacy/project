@@ -19,7 +19,7 @@ $autoLoader = require dirname(__DIR__) . '/vendor/autoload.php';
 /**
  * Initiate Cubex
  */
-$cubex = new \Cubex\Core\Loader($autoLoader);
+$cubex = new \Cubex\Loader($autoLoader);
 
 /**
  * Pull in Cubex Configuration

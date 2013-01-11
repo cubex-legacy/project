@@ -26,12 +26,12 @@ $autoLoader = require dirname(__DIR__) . '/vendor/autoload.php';
 /**
  * Initiate Cubex
  */
-$cubex = new \Cubex\Core\Loader($autoLoader);
+$cubex = new \Cubex\Loader($autoLoader);
 
 /**
  * Pull in Cubex Configuration
  */
-$configArray = \Cubex\Config\ConfigGroup::fromArray(
+$configArray = \Cubex\Foundation\Config\ConfigGroup::fromArray(
   array_replace_recursive(
     parse_ini_file(dirname(__DIR__) . '/conf/defaults.ini', true),
     parse_ini_file(dirname(__DIR__) . '/conf/' . CUBEX_ENV . '.ini', true)
@@ -49,7 +49,7 @@ $cubex->respondToWebRequest();
  * Should you wish to find out the PHP Request time
  */
 
-/*
+
 echo "Completed in ";
 echo number_format(((microtime(true) - PHP_START)) * 1000, 1) . "ms";
-*/
+

@@ -4,7 +4,7 @@
  */
 namespace Project\Applications\Www;
 
-use Cubex\Application\Application;
+use Cubex\Core\Application\Application;
 
 class WwwApplication extends Application
 {

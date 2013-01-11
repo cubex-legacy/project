@@ -5,7 +5,7 @@
 
 namespace Project;
 
-class Project extends \Cubex\Project\Project
+class Project extends \Cubex\Core\Project\Project
 {
   /**
    * Project Name
@@ -18,7 +18,7 @@ class Project extends \Cubex\Project\Project
   }
 
   /**
-   * @return \Cubex\Application\Application
+   * @return \Cubex\Core\Application\Application
    */
   public function defaultApplication()
   {

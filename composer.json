@@ -1,6 +1,6 @@
 {
   "require":           {
-    "cubex/core": "*"
+    "cubex/cubex": "*"
   },
   "autoload":          {
     "psr-0": {
