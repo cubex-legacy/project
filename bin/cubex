@@ -18,21 +18,25 @@ $autoLoader = require dirname(__DIR__) . '/vendor/autoload.php';
 
 /**
  * Initiate Cubex
+ * Cubex uses the document root to find the web root, so we set it here
  */
+$_SERVER['DOCUMENT_ROOT'] = __DIR__;
 $cubex = new \Cubex\Loader($autoLoader);
 
 /**
  * Pull in Cubex Configuration
  */
-$configArray = \Cubex\Config\ConfigGroup::fromArray(
+$configArray = \Cubex\Foundation\Config\ConfigGroup::fromArray(
   array_replace_recursive(
     parse_ini_file(dirname(__DIR__) . '/conf/defaults.ini', true),
     parse_ini_file(dirname(__DIR__) . '/conf/' . CUBEX_ENV . '.ini', true)
   )
 );
 
+$cubex->configure($configArray);
+
 /**
- * Respond to Web Request (Cubex Returns \Cubex\Http\Response
+ * Respond to Web Request (Cubex Returns \Cubex\Core\Http\Response
  */
 $cubex->respondToCliRequest($argv);
 
