@@ -13,6 +13,11 @@ class WwwApplication extends Application
     return 'DefaultController';
   }
 
+  public function name()
+  {
+    return "Skeleton Application";
+  }
+
   public function getNamespace()
   {
     return __NAMESPACE__;

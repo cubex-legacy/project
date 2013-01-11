@@ -49,7 +49,7 @@ $cubex->respondToWebRequest();
  * Should you wish to find out the PHP Request time
  */
 
-
+/*
 echo "Completed in ";
 echo number_format(((microtime(true) - PHP_START)) * 1000, 1) . "ms";
-
+*/

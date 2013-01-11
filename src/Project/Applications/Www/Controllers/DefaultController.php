@@ -6,43 +6,47 @@
 namespace Project\Applications\Www\Controllers;
 
 use Cubex\Core\Controllers\WebpageController;
-use Cubex\Routing\Templates\ResourceTemplate;
+use Cubex\View\HtmlElement;
+use Project\Applications\Www\Views\Section\Header;
 use Project\Applications\Www\Views\Index;
 
 class DefaultController extends WebpageController
 {
   public function renderIndex()
   {
+    $this->nest(
+      "header", new Header(
+                'Welcome to Cubex',
+                'This section has been created within the renderIndex() method'
+              )
+    );
     return new Index();
   }
 
-  public function renderNew()
+  public function renderPage($magic)
   {
-    return "New";
+    $this->nest(
+      "header", new Header(
+                ucwords($this->getStr("magic")),
+                'This page has been dynamically generated based'
+                . ' on parameters within your url.'
+              )
+    );
+    return HtmlElement::create(
+      'h2', [], "Rendering " . $magic
+    );
   }
 
-  public function renderEdit()
+  public function getRoutes()
   {
-    return "Edit";
-  }
-
-  public function renderUpdate()
-  {
-    return "Updating";
-  }
-
-  public function renderDestroy()
-  {
-    return "Deleting";
+    return array(
+      '/:magic' => 'page',
+      ''        => 'index'
+    );
   }
 
   public function defaultAction()
   {
     return "index";
-  }
-
-  public function getRoutes()
-  {
-    return ResourceTemplate::getRoutes();
   }
 }

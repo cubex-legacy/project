@@ -1,3 +1,56 @@
-;fkwhkj hskjghqwehqwh
+<?php
+/**
+ *
+ * @var $this \Cubex\View\Layout
+ *
+ * This is your default layout file, variables in this file act as placeholders for named nested views
+ *
+ */
+?>
+<style type="text/css">
+  @import url('http://twitter.github.com/bootstrap/assets/css/bootstrap.css');
 
-fwejlh efwjhfew qh
+  body
+  { padding-top: 20px; padding-bottom: 40px }
+
+  .container-narrow
+  { margin: 0 auto; max-width: 700px }
+
+  .container-narrow > hr
+  { margin: 30px 0 }
+</style>
+<div class="container-narrow" id="wrapper">
+
+  <div class="masthead">
+    <ul class="nav nav-pills pull-right">
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <h3 class="muted"><?php
+      $app = $this->entity();
+      if($app instanceof \Cubex\Core\Application\Application)
+      {
+        echo $app->name();
+      }
+      else
+      {
+        echo "Unknown";
+      }
+      ?></h3>
+  </div>
+
+  <hr>
+  <div id="header"><?php echo $this->yield("header", false); ?></div>
+
+  <hr>
+  <div id="content">
+    <?php echo $this->yield("content", "main-content"); ?>
+    <div class="clear">&nbsp;</div>
+  </div>
+
+</div>
+<script type="text/javascript"
+        src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript"
+        src="http://twitter.github.com/bootstrap/assets/js/bootstrap.min.js"></script>
