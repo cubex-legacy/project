@@ -13,9 +13,6 @@ class DefaultController extends WebpageController
 {
   public function renderIndex()
   {
-    $this->webpage()->layout()->setLayoutsDirectory(dirname(__DIR__) . '/Templates/Layouts');
-    echo $this->webpage()->layout()->getFilePath();
-    die;
     return new Index();
   }
 
