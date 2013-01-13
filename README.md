@@ -20,4 +20,4 @@ load {CUBEX_ENV}.ini from your conf directory and merge on top of defaults.ini
 
 Recommended PHP Modules
 
-- APC
+- XCache 3 (APC & XCache are currently unstable with some PHP 5.4 features)
