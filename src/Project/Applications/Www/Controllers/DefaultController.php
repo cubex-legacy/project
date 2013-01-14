@@ -16,8 +16,10 @@ class DefaultController extends WebpageController
   {
     $this->nest(
       "header", new Header(
-                'Welcome to Cubex',
-                'This section has been created within the renderIndex() method'
+                $this->t('Welcome to Cubex'),
+                $this->t(
+                  'This section has been created within the renderIndex() method'
+                )
               )
     );
     return new Index();
@@ -28,8 +30,10 @@ class DefaultController extends WebpageController
     $this->nest(
       "header", new Header(
                 ucwords($this->getStr("magic")),
-                'This page has been dynamically generated based'
-                . ' on parameters within your url.'
+                $this->t(
+                  'This page has been dynamically generated based'
+                  . ' on parameters within your url.'
+                )
               )
     );
     return HtmlElement::create(
@@ -40,8 +44,8 @@ class DefaultController extends WebpageController
   public function getRoutes()
   {
     return array(
-      '/:magic' => 'page',
-      ''        => 'index'
+      '/:magic'    => 'page',
+      ''           => 'index'
     );
   }
 

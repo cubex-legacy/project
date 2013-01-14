@@ -13,23 +13,29 @@ class Index extends TemplatedViewModel
 {
   public function __construct()
   {
-    $this->setTitle("Cubex : Index Page");
+    $this->setTitle($this->t("Cubex : Index Page"));
   }
 
   public function render()
   {
     $append = new Impart(
-      '<a class="btn btn-success" href="http://cubex.io">What is Cubex?</a>'
+      '<a class="btn btn-success" href="http://cubex.io">' .
+      $this->t('What is Cubex?') . '</a>'
     );
 
     $section = new Partial('<h4>%s</h4><p>%s</p>');
     $section->addElement(
-      'Created with Partials',
-      'This section was created with the partial view helper using addElement'
+      $this->t('Created with Partials'),
+      $this->t(
+        'This section was created with the partial view helper using addElement'
+      )
     );
     $section->addElement(
-      'Using HTMLElement',
-      'As well as partials for each section, the group was compiled using the HTMLElement helper'
+      $this->t('Using HTMLElement'),
+      $this->t(
+        'As well as partials for each section, the group was compiled' .
+        'using the HTMLElement helper'
+      )
     );
 
     $secondary = HtmlElement::create('div', ['class' => 'row-fluid']);
