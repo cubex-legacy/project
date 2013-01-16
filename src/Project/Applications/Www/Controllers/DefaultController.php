@@ -19,6 +19,7 @@ class DefaultController extends WebpageController
     $this->requireCss(
       'http://twitter.github.com/bootstrap/assets/css/bootstrap.css'
     );
+    $this->requireCss('/base');
 
     $this->requireJs('http://code.jquery.com/jquery-latest.js');
     $this->requireJs(
@@ -28,11 +29,6 @@ class DefaultController extends WebpageController
 
   public function renderIndex()
   {
-    $this->requireCss("test");
-    $this->requireJs("test");
-    $this->requireCss("/test");
-    $this->requireJs("/test");
-
     $this->nest(
       "header",
       new Header(
@@ -57,6 +53,7 @@ class DefaultController extends WebpageController
         )
       )
     );
+
     return HtmlElement::create(
       'h2', [], "Rendering " . $magic
     );
@@ -72,7 +69,7 @@ class DefaultController extends WebpageController
   {
     return array(
       '/:magic@alpha' => 'page',
-      '/'        => 'index'
+      '/'             => 'index'
     );
   }
 
