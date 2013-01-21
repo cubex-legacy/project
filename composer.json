@@ -1,6 +1,7 @@
 {
   "require":           {
-    "cubex/cubex": "*"
+    "cubex/cubex": "*",
+    "mobiledetect/mobiledetectlib": "dev-master"
   },
   "autoload":          {
     "psr-0": {
