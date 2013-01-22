@@ -2,8 +2,7 @@
   "require":           {
     "cubex/cubex":                  "*",
     "bundl/debugger":               "*",
-    "mobiledetect/mobiledetectlib": "dev-master",
-    "onigoetz/phpseclib":           "dev-master"
+    "mobiledetect/mobiledetectlib": "dev-master"
   },
   "autoload":          {
     "psr-0": {
