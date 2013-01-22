@@ -1,6 +1,7 @@
 {
   "require":           {
-    "cubex/cubex": "*",
+    "cubex/cubex":                  "*",
+    "bundl/debugger":               "*",
     "mobiledetect/mobiledetectlib": "dev-master"
   },
   "autoload":          {

@@ -16,7 +16,7 @@ class WwwApplication extends Application
   public function getBundles()
   {
     return [
-      //'debugger' => new \Project\Bundles\Debugger\DebuggerBundle(),
+      'debugger' => new \Bundl\Debugger\DebuggerBundle()
     ];
   }
 
