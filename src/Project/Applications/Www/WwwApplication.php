@@ -13,6 +13,13 @@ class WwwApplication extends Application
     return 'DefaultController';
   }
 
+  public function getBundles()
+  {
+    return [
+      //'debugger' => new \Project\Bundles\Debugger\DebuggerBundle(),
+    ];
+  }
+
   public function name()
   {
     return "Skeleton Application";
