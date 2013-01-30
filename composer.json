@@ -3,7 +3,7 @@
     "cubex/cubex":                  "*",
     "bundl/debugger":               "*",
     "mobiledetect/mobiledetectlib": "dev-master",
-    "onigoetz/phpseclib":           "dev-master"
+    "phpseclib/phpseclib":           "dev-master"
   },
   "autoload":          {
     "psr-0": {
