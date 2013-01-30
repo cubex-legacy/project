@@ -6,8 +6,13 @@
 namespace Project\Applications\Www\Controllers;
 
 use Cubex\Core\Controllers\WebpageController;
+use Cubex\Database\ConnectionMode;
+use Cubex\Facade\Redirect;
+use Cubex\Form\Form;
 use Cubex\View\HtmlElement;
 use Cubex\View\Templates\Errors\Error404;
+use Project\Applications\Www\Forms\ContactUs;
+use Project\Applications\Www\Views\Contact;
 use Project\Applications\Www\Views\Section\Header;
 use Project\Applications\Www\Views\Index;
 
@@ -27,6 +32,7 @@ class DefaultController extends WebpageController
     );
   }
 
+
   public function renderIndex()
   {
     $this->nest(
@@ -39,6 +45,48 @@ class DefaultController extends WebpageController
       )
     );
     return new Index();
+  }
+
+  public function postContact()
+  {
+    if(Form::csrfCheck(true))
+    {
+      $form = new ContactUs();
+      $form->hydrate($this->request()->postVariables());
+      if($form->isValid())
+      {
+        return Redirect::to('/')->with(
+          "success", "Thank you for contacting us"
+        );
+      }
+      else
+      {
+        return $this->renderContact($form);
+      }
+    }
+    else
+    {
+      throw new \Exception("Bad Csrf Check");
+    }
+  }
+
+  public function renderContact(ContactUs $form = null)
+  {
+    $this->nest(
+      "header",
+      new Header(
+        $this->t('Contact Us'),
+        $this->t(
+          'Example contact form'
+        )
+      )
+    );
+    $contact = new Contact();
+    if($form !== null)
+    {
+      $contact->setForm($form);
+    }
+    return $contact;
   }
 
   public function renderPage($magic)
@@ -54,6 +102,8 @@ class DefaultController extends WebpageController
       )
     );
 
+    $this->setTitle($magic);
+
     return HtmlElement::create(
       'h2', [], "Rendering " . $magic
     );
@@ -68,8 +118,9 @@ class DefaultController extends WebpageController
   public function getRoutes()
   {
     return array(
+      '/contact' => 'contact',
       '/:magic@alpha' => 'page',
-      '/'             => 'index'
+      '/' => 'index'
     );
   }
 

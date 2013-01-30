@@ -4,6 +4,7 @@
  */
 namespace Project\Applications\Www\Views;
 
+use Cubex\Facade\Session;
 use Cubex\View\HtmlElement;
 use Cubex\View\Impart;
 use Cubex\View\Partial;
@@ -18,6 +19,14 @@ class Index extends TemplatedViewModel
 
   public function render()
   {
+    $flash = '';
+
+    $success = Session::getFlash("success");
+    if($success)
+    {
+      $flash = '<div class="alert alert-success">' . $success . '</div>';
+    }
+
     $append = new Impart(
       '<a class="btn btn-success" href="http://cubex.io">' .
       $this->t('What is Cubex?') . '</a>'
@@ -43,6 +52,6 @@ class Index extends TemplatedViewModel
     $secondary->nestElement('div', ['class' => 'span6'], $section);
     $secondary->renderAfter(new Impart('<hr/>'));
 
-    return parent::render() . $secondary . $append;
+    return $flash . parent::render() . $secondary . $append;
   }
 }
