@@ -16,7 +16,7 @@ class ContactUs extends Form
   public $phone;
   public $email;
   public $message;
-  public $favouriteColour;
+  public $favouriteColour = '#8412b3';
 
   public function __construct($action = '')
   {
