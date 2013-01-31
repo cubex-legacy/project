@@ -27,7 +27,7 @@ class ContactUs extends Form
   {
     $this->setDefaultElementTemplate('<dt>{{label}}</dt><dd>{{input}}</dd>');
 
-    $this->get("message")->setType(FormElement::TEXTAREA);
+    $this->get("message")->setType(FormElement::TEXTAREA)->setRequired(true);
 
     $this->get("email")
     ->setType(FormElement::EMAIL)

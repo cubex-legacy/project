@@ -118,9 +118,9 @@ class DefaultController extends WebpageController
   public function getRoutes()
   {
     return array(
-      '/contact' => 'contact',
+      '/contact'      => 'contact',
       '/:magic@alpha' => 'page',
-      '/' => 'index'
+      '/'             => 'index'
     );
   }
 
