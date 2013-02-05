@@ -20,11 +20,13 @@
     }
   ],
   "require":           {
-    "php":                          ">=5.4.0",
-    "cubex/cubex":                  "*",
-    "bundl/debugger":               "*",
-    "mobiledetect/mobiledetectlib": "dev-master",
-    "phpseclib/phpseclib":          "dev-master"
+    "php":            ">=5.4.0",
+    "cubex/cubex":    "*",
+    "bundl/debugger": "*"
+  },
+  "suggest":           {
+    "mobiledetect/mobiledetectlib": "stable",
+    "phpseclib/phpseclib":          "stable"
   },
   "autoload":          {
     "psr-0": {
