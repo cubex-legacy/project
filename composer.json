@@ -9,13 +9,11 @@
     {
       "name":     "Brooke Bryan",
       "email":    "brooke@bajb.net",
-      "homepage": "http://www.bajb.net",
-      "role":     "Developer"
+      "homepage": "http://www.bajb.net"
     },
     {
       "name":  "Gareth Evans",
-      "email": "garoevans@gmail.com",
-      "role":  "Developer"
+      "email": "garoevans@gmail.com"
     }
   ],
   "require":           {
@@ -24,12 +22,13 @@
     "bundl/debugger": "*"
   },
   "suggest":           {
-    "mobiledetect/mobiledetectlib": "stable",
-    "phpseclib/phpseclib":          "stable"
+    "mobiledetect/mobiledetectlib": "*",
+    "phpseclib/phpseclib":          "*"
   },
   "autoload":          {
     "psr-0": {
       "Project\\": "src/"
     }
-  }
+  },
+  "minimum-stability": "dev"
 }
