@@ -4,7 +4,6 @@
   "version":           "1.0.0",
   "keywords":          ["framework", "cubex", "project"],
   "homepage":          "http://cubex.io",
-  "minimum-stability": "stable",
   "license":           "BSD-3-Clause",
   "authors":           [
     {
