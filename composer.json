@@ -1,14 +1,34 @@
 {
+  "name":              "cubex/project",
+  "description":       "Base Cubex Framework Project",
+  "version":           "1.0.0",
+  "keywords":          ["framework", "cubex", "project"],
+  "homepage":          "http://cubex.io",
+  "minimum-stability": "stable",
+  "license":           "BSD-3-Clause",
+  "authors":           [
+    {
+      "name":     "Brooke Bryan",
+      "email":    "brooke@bajb.net",
+      "homepage": "http://www.bajb.net",
+      "role":     "Developer"
+    },
+    {
+      "name":  "Gareth Evans",
+      "email": "garoevans@gmail.com",
+      "role":  "Developer"
+    }
+  ],
   "require":           {
+    "php":                          ">=5.4.0",
     "cubex/cubex":                  "*",
     "bundl/debugger":               "*",
     "mobiledetect/mobiledetectlib": "dev-master",
-    "phpseclib/phpseclib":           "dev-master"
+    "phpseclib/phpseclib":          "dev-master"
   },
   "autoload":          {
     "psr-0": {
       "Project\\": "src/"
     }
-  },
-  "minimum-stability": "dev"
+  }
 }
