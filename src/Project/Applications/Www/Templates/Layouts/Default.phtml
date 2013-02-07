@@ -28,11 +28,11 @@
       ?></h3>
   </div>
   <hr>
-  <div id="header"><?php echo $this->yield("header", false); ?></div>
+  <div id="header"><?php echo $this->renderNest("header", false); ?></div>
 
   <hr>
   <div id="content">
-    <?php echo $this->yield("content", "main-content"); ?>
+    <?php echo $this->renderNest("content", "main-content"); ?>
     <div class="clear">&nbsp;</div>
   </div>
 
