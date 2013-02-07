@@ -21,10 +21,6 @@
     "cubex/cubex":    "*",
     "bundl/debugger": "*"
   },
-  "suggest":           {
-    "mobiledetect/mobiledetectlib": "*",
-    "phpseclib/phpseclib":          "*"
-  },
   "autoload":          {
     "psr-0": {
       "Project\\": "src/"
