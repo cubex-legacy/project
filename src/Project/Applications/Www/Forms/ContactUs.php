@@ -37,7 +37,7 @@ class ContactUs extends Form
     $this->get("phone")->setType(FormElement::TEL);
     $this->get("favouritecolour")->setType(FormElement::COLOUR);
 
-    $this->addSubmitElement("submit", "Contact Us");
+    $this->addSubmitElement("Contact Us");
     $this->get("submit")->setLabel("");
   }
 }
