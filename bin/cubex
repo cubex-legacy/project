@@ -38,7 +38,7 @@ $cubex->configure($configArray);
 /**
  * Respond to Web Request (Cubex Returns \Cubex\Core\Http\Response
  */
-$cubex->respondToCliRequest($argv);
+$response = $cubex->respondToCliRequest($argv);
 
 /**
  * Should you wish to find out the PHP Request time
@@ -48,3 +48,5 @@ $cubex->respondToCliRequest($argv);
 echo "Completed in ";
 echo number_format(((microtime(true) - PHP_START)) * 1000, 1) . "ms";
 */
+
+exit($response->statusCode());
