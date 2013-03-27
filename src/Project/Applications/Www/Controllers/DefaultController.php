@@ -9,6 +9,7 @@ use Cubex\Core\Controllers\WebpageController;
 use Cubex\Database\ConnectionMode;
 use Cubex\Facade\Redirect;
 use Cubex\Form\Form;
+use Cubex\Queue\StdQueue;
 use Cubex\View\HtmlElement;
 use Cubex\View\Templates\Errors\Error404;
 use Project\Applications\Www\Forms\ContactUs;
@@ -35,6 +36,18 @@ class DefaultController extends WebpageController
 
   public function renderIndex()
   {
+    if($this->request()->isForm())
+    {
+      $q = new StdQueue("fejwh");
+      \Cubex\Facade\Queue::push($q, $this->request()->postVariables());
+    }
+
+    $form = new Form("cubexformt");
+    $form->addTextElement("title");
+    $form->addTextareaElement("message");
+    $form->addSubmitElement();
+    echo $form;
+
     $this->nest(
       "header",
       new Header(
@@ -44,7 +57,7 @@ class DefaultController extends WebpageController
         )
       )
     );
-    return new Index();
+    echo new Index();
   }
 
   public function postContact()
@@ -56,7 +69,8 @@ class DefaultController extends WebpageController
       if($form->isValid())
       {
         return Redirect::to('/')->with(
-          "success", "Thank you for contacting us"
+          "success",
+          "Thank you for contacting us"
         );
       }
       else
@@ -105,7 +119,9 @@ class DefaultController extends WebpageController
     $this->setTitle($magic);
 
     return HtmlElement::create(
-      'h2', [], "Rendering " . $magic
+      'h2',
+      [],
+    "Rendering " . $magic
     );
   }
 
