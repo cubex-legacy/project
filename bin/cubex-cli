@@ -1,0 +1,28 @@
+#!/bin/bash
+
+cleanquit () {
+  echo;
+  echo;
+  echo " Thank you for using Cubex CLI";
+  echo;
+  exit $?
+}
+
+trap cleanquit SIGINT
+
+CWD=`pwd`
+CUBEX="$CWD/bin/cubex"
+
+echo "Cubex Cli [Version 1.0]";
+echo;
+
+while true
+do
+  read -e -p "cubex> " COMMAND
+  if [ "exit" == "$COMMAND" -o  "quit" == "$COMMAND" ]; then
+    cleanquit
+  elif [ -n "$COMMAND" ]; then
+    $CUBEX $COMMAND
+    echo;
+  fi
+done
