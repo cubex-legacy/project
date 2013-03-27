@@ -19,7 +19,7 @@ echo;
 while true
 do
   read -e -p "cubex> " COMMAND
-  if [ "exit" == "$COMMAND" -o  "quit" == "$COMMAND" ]; then
+  if [ $? -eq 1 -o "exit" == "$COMMAND" -o  "quit" == "$COMMAND" ]; then
     cleanquit
   elif [ -n "$COMMAND" ]; then
     $CUBEX $COMMAND
