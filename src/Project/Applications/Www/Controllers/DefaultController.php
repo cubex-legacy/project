@@ -121,7 +121,7 @@ class DefaultController extends WebpageController
     return HtmlElement::create(
       'h2',
       [],
-    "Rendering " . $magic
+      ("Rendering " . $magic)
     );
   }
 
