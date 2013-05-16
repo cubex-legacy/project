@@ -43,13 +43,15 @@ $cubex->configure($configArray);
 /**
  * Respond to Web Request (Cubex Returns \Cubex\Http\Response
  */
-$cubex->respondToWebRequest();
+$response = $cubex->respondToWebRequest();
 
 /**
  * Should you wish to find out the PHP Request time
  */
-
 /*
-echo "Completed in ";
-echo number_format(((microtime(true) - PHP_START)) * 1000, 1) . "ms";
+if($response->renderType() === \Cubex\Core\Http\Response::RENDER_RENDERABLE)
+{
+  echo "Completed in ";
+  echo number_format(((microtime(true) - PHP_START)) * 1000, 1) . "ms";
+}
 */
