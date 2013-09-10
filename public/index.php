@@ -29,18 +29,6 @@ $autoLoader = require dirname(__DIR__) . '/vendor/autoload.php';
 $cubex = new \Cubex\Loader($autoLoader);
 
 /**
- * Pull in Cubex Configuration
- */
-$configArray = \Cubex\Foundation\Config\ConfigGroup::fromArray(
-  array_replace_recursive(
-    parse_ini_file(dirname(__DIR__) . '/conf/defaults.ini', true),
-    parse_ini_file(dirname(__DIR__) . '/conf/' . CUBEX_ENV . '.ini', true)
-  )
-);
-
-$cubex->configure($configArray);
-
-/**
  * Respond to Web Request (Cubex Returns \Cubex\Http\Response
  */
 $response = $cubex->respondToWebRequest();
