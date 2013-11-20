@@ -12,28 +12,13 @@
   <div class="masthead">
     <ul class="nav nav-pills pull-right">
       <li class="active"><a href="/">Home</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact">Contact</a></li>
+      <li><a href="http://cubex.io">Cubex.io</a></li>
     </ul>
-    <h3 class="muted"><?php
-      $app = $this->entity();
-      if($app instanceof \Cubex\Core\Application\Application)
-      {
-        echo $app->name();
-      }
-      else
-      {
-        echo "Unknown";
-      }
-      ?></h3>
+    <h3 class="muted">Your New Cubex Application</h3>
   </div>
-  <hr>
-  <div id="header"><?php echo $this->renderNest("header", false); ?></div>
-
   <hr>
   <div id="content">
     <?php echo $this->renderNest("content", "main-content"); ?>
-    <div class="clear">&nbsp;</div>
   </div>
 
 </div>

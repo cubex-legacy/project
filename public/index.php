@@ -36,6 +36,7 @@ $response = $cubex->respondToWebRequest();
 /**
  * Should you wish to find out the PHP Request time
  */
+
 /*
 if($response->renderType() === \Cubex\Core\Http\Response::RENDER_RENDERABLE)
 {

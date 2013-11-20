@@ -1,9 +1,5 @@
 <?php
-/**
- * @author  brooke.bryan
- */
-
-namespace Project;
+namespace CubexProject;
 
 class Project extends \Cubex\Core\Project\Project
 {
@@ -14,7 +10,7 @@ class Project extends \Cubex\Core\Project\Project
    */
   public function name()
   {
-    return "Project Name";
+    return "My New Cubex Project";
   }
 
   /**
