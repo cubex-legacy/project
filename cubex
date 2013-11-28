@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+<?php
+/**
+ * Description: Cubex CLI
+ */
+
+define('PHP_START', microtime(true));
+
+/**
+ * Cubex uses the document root to find the web root, so we set it here
+ */
+$_SERVER['DOCUMENT_ROOT'] = __DIR__ . '/public';
+
+/**
+ **************************************
+ * Register The Composer Auto Loader  *
+ **************************************
+ */
+$autoLoader = require __DIR__ . '/vendor/autoload.php';
+
+/**
+ * Initiate Cubex
+ */
+$cubex = new \Cubex\Loader($autoLoader);
+
+/**
+ * Respond to Web Request (Cubex Returns \Cubex\Core\Http\Response)
+ */
+$response = $cubex->respondToCliRequest($argv);
+
+/**
+ * Correctly return the exit code
+ */
+exit($response->statusCode());
